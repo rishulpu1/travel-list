@@ -4,7 +4,7 @@ function PackingList({ data }) {
     <div className="list">
       <ul>
         {data.map((item) => (
-          <Item item={item} />
+          <Item item={item} key={item.id} />
         ))}
       </ul>
     </div>
