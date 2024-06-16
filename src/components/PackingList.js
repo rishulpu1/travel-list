@@ -1,10 +1,10 @@
 import Item from "./Item";
-function PackingList({ data }) {
+function PackingList({ data, onDelete }) {
   return (
     <div className="list">
       <ul>
         {data.map((item) => (
-          <Item item={item} key={item.id} />
+          <Item onDelete={onDelete} item={item} key={item.id} />
         ))}
       </ul>
     </div>
