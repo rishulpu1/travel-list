@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Item from "./Item";
-function PackingList({ data, onDelete, onCheckItem }) {
+function PackingList({ data, onDelete, onCheckItem, onReset }) {
   const [sortBy, setSortBy] = useState("input");
   let sortedItemsBy;
   if (sortBy === "input") sortedItemsBy = data;
@@ -10,6 +10,7 @@ function PackingList({ data, onDelete, onCheckItem }) {
       .sort((a, b) => a.description.localeCompare(b.description));
   if (sortBy === "packed")
     sortedItemsBy = data.slice().sort((a, b) => Number(a.packed - b.packed));
+
   return (
     <div className="list">
       <ul>
@@ -28,6 +29,7 @@ function PackingList({ data, onDelete, onCheckItem }) {
           <option value="description">Sort By Description</option>
           <option value="packed">Sort By Packed Status</option>
         </select>
+        <button onClick={onReset}>Reset</button>
       </div>
     </div>
   );
