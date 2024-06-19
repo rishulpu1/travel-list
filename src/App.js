@@ -32,7 +32,7 @@ function App() {
         onDelete={handleDeleteItem}
         onCheckItem={handlePackedItem}
       />
-      <Stats />
+      <Stats items={items} />
     </div>
   );
 }
